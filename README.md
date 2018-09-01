@@ -1,3 +1,10 @@
+- install
+
+```
+curl -Lk https://raw.githubusercontent.com/LinuxEA-Mark/docker-SoftEtherVPN/master/docker-compose.yaml -o $PWD/docker-compose.yaml
+docker-compose -f $PWD/docker-compose.yaml up -d
+```
+
 When the container starts, you need to download the SoftEther VPN Server.
 
 The first link will reset the password and then simply configure it.
