@@ -1,0 +1,14 @@
+version: '2'
+services:
+  softether:
+    image: marksugar/softether:4.27
+#    build: .
+#       context: https://raw.githubusercontent.com/LinuxEA-Mark/docker-SoftEtherVPN/master/Dockerfile
+    container_name: softether4.27
+    restart: always
+    network_mode: "host"
+#    volumes:
+#      - /data/docker/mysql/data:/data/mysql:rw
+    ports:
+      - "443"
+      - "1194"
