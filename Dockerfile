@@ -1,5 +1,5 @@
 FROM alpine:3.8
-MAINTAINER www.linuxea.com mark
+MAINTAINER kbq
 ENV VPN_VSON="4.27-9668-beta"
 ENV VPN_VSON_URL="https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/archive/v${VPN_VSON}.tar.gz" \
 	BATADIR=/usr/local/SoftEtherVPN
@@ -11,7 +11,7 @@ RUN set -x \
 	&& curl -Lks4  ${VPN_VSON_URL}|tar xz -C ${BATADIR} --strip-components=1 \
 	&& cd ${BATADIR} && ./configure && make && make install \
 	&& apk add supervisor gettext \
-	&& curl -Lk https://raw.githubusercontent.com/LinuxEA-Mark/docker-SoftEtherVPN/master/supervisord.conf -o /etc/supervisord.conf \
+	&& curl -Lk https://raw.githubusercontent.com/kongbinquan/SoftEtherVPN/master/supervisord.conf -o /etc/supervisord.conf \
 	&& apk del .BUILD_PASS curl \
 	&& runDev="$( \
 		scanelf --needed --nobanner /usr/bin/vpnserver \
